@@ -1,0 +1,6 @@
+arb-dir: lib/l10n
+template-arb-file: quran_reader_en.arb
+output-localization-file: quran_reader_localizations.dart
+output-class: QuranReaderLocalizations
+output-dir: lib/src/l10n/generated
+nullable-getter: false

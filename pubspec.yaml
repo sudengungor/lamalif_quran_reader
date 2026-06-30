@@ -1,0 +1,33 @@
+name: quran_reader
+description: Standalone Quran reader module with fihrist navigation and reading settings.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  provider: ^6.1.2
+  scrollable_positioned_list: ^0.3.8
+  shared_preferences: ^2.5.2
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/data/
+    - assets/data/quran/
+  fonts:
+    - family: Kuran
+      fonts:
+        - asset: assets/fonts/kuran.ttf

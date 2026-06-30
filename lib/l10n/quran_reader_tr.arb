@@ -1,0 +1,59 @@
+{
+  "@@locale": "tr",
+  "bookNavTitle": "Kur'an-ı Kerim",
+  "bookEnterNumber": "Bir sayı girin...",
+  "bookGoPage": "Sayfaya Git",
+  "bookNavigation": "Sayfa Navigasyonu",
+  "bookError": "Hata",
+  "bookGo": "Git",
+  "bookCancel": "İptal",
+  "bookPageShort": "Sf. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "Cüz {cuz} · Sf. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "Meal belirtilmemiş",
+  "bookSettingsFontSize": "Yazı Boyutu",
+  "bookSettingsLineSpacing": "Satır Aralığı",
+  "bookSettingsMeal": "Meal",
+  "bookSettingsBackgroundColor": "Arka Plan",
+  "bookSettingsTextColor": "Yazı",
+  "bookFihristTitle": "Fihrist",
+  "bookFihristSureTab": "Sûre",
+  "bookFihristCuzTab": "Cüz",
+  "bookFihristHizb": "Hizb",
+  "bookFihristCuzLabel": "Cüz {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "Hizb {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "Sûre adı veya numarası ara",
+  "bookFihristSearchCuz": "Cüz numarası ara",
+  "settingsTitle": "Ayarlar",
+  "langCode": "tr"
+}

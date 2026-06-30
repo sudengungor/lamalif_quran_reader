@@ -1,0 +1,59 @@
+{
+  "@@locale": "en",
+  "bookNavTitle": "Qur'an",
+  "bookEnterNumber": "Enter a number...",
+  "bookGoPage": "Go to Page",
+  "bookNavigation": "Page Navigation",
+  "bookError": "Error",
+  "bookGo": "Go",
+  "bookCancel": "Cancel",
+  "bookPageShort": "p. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "Juz {cuz} · p. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "Translation not specified",
+  "bookSettingsFontSize": "Font Size",
+  "bookSettingsLineSpacing": "Line Spacing",
+  "bookSettingsMeal": "Translation",
+  "bookSettingsBackgroundColor": "Background",
+  "bookSettingsTextColor": "Text",
+  "bookFihristTitle": "Table of Contents",
+  "bookFihristSureTab": "Surah",
+  "bookFihristCuzTab": "Juz",
+  "bookFihristHizb": "Hizb",
+  "bookFihristCuzLabel": "Juz {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "Hizb {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "Search surah name or number",
+  "bookFihristSearchCuz": "Search juz number",
+  "settingsTitle": "Settings",
+  "langCode": "en"
+}
