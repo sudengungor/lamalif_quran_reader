@@ -16,7 +16,7 @@ class ReadingThemeManager {
     ColorOption(color: Colors.black),
     ColorOption(color: Color(0xff6B3A1F)),
     ColorOption(color: Color(0xff1B3A2D)),
-    ColorOption(color: Color(0xff1A2E3D)),
+    ColorOption(color: Color.fromARGB(255, 78, 31, 31)),
 
     // Light text colors
     ColorOption(color: Color.fromARGB(255, 244, 244, 244), isDark: false),
