@@ -1,10 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-
-import 'package:quran_reader/src/core/analytics/quran_reader_analytics.dart';
 import 'package:quran_reader/src/domain/model/book.dart';
 import 'package:quran_reader/src/domain/model/drawer_component.dart';
 import 'package:quran_reader/src/domain/service/book_read_preferences.dart';
@@ -12,19 +7,17 @@ import 'package:quran_reader/src/domain/service/book_read_repository.dart';
 import 'package:quran_reader/src/l10n/generated/quran_reader_localizations.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/color/color_option.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/color/reading_theme_manager.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class BookReadProvider extends ChangeNotifier {
   BookReadProvider({
     required BookReadRepository repository,
     required BookReadPreferences preferences,
-    QuranReaderAnalytics analytics = const NoOpQuranReaderAnalytics(),
   }) : _bookReadRepository = repository,
-       _bookPreferences = preferences,
-       _analytics = analytics;
+       _bookPreferences = preferences;
 
   final BookReadRepository _bookReadRepository;
   final BookReadPreferences _bookPreferences;
-  final QuranReaderAnalytics _analytics;
 
   late ItemScrollController? itemScrollController;
   late ItemPositionsListener? itemPositionsListener;
@@ -124,7 +117,6 @@ class BookReadProvider extends ChangeNotifier {
   Future<List<String>> _fetchBookData() async {
     try {
       _toggleLoading(true);
-      log('${selectedBook.fileName} kitabı yükleniyor');
 
       final bookData = await _bookReadRepository.getBookData(selectedBook);
       itemPageNumbers = bookData.pageNumbers;
@@ -226,9 +218,6 @@ class BookReadProvider extends ChangeNotifier {
     }
 
     await setSavePage(currentPage.toDouble());
-    log(
-      'Okuma konumu kaydedildi: item=$currentPage, sayfa=$currentPhysicalPage',
-    );
   }
 
   Future<void> saveAlignment(double value) async {
@@ -239,7 +228,6 @@ class BookReadProvider extends ChangeNotifier {
 
   Future<void> saveFontScale(double value) async {
     await _bookPreferences.setFontScale(value);
-    log('font scale saved: $value');
   }
 
   double getFontScale() => _bookPreferences.getFontScale();
@@ -390,7 +378,6 @@ class BookReadProvider extends ChangeNotifier {
 
   Future<void> saveLineSpacing(double value) async {
     await _bookPreferences.setLineSpacing(value);
-    log('line spacing saved: $value');
   }
 
   double getLineSpacing() => _bookPreferences.getLineSpacing();
@@ -447,7 +434,6 @@ class BookReadProvider extends ChangeNotifier {
 
   Future<void> savePadding(double value) async {
     await _bookPreferences.setPadding(value);
-    log('padding saved: $value');
   }
 
   double getPadding() => _bookPreferences.getPadding();
@@ -460,6 +446,5 @@ class BookReadProvider extends ChangeNotifier {
     final fileName = newValue ? 'kuran_meal' : 'kuran';
     await init(fileName);
     loadBookData();
-    _analytics.logEvent('quran_meal_${newValue ? 'enabled' : 'disabled'}');
   }
 }

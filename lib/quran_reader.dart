@@ -1,9 +1,8 @@
 /// Quran reader package — standalone Kur'an okuma modülü.
 library;
 
-export 'src/core/analytics/analytics_context.dart';
-export 'src/core/analytics/quran_reader_analytics.dart';
 export 'src/core/assets/quran_reader_assets.dart';
+export 'src/core/events/book_read_events.dart';
 export 'src/core/extension/context_extension.dart';
 export 'src/domain/model/book.dart';
 export 'src/domain/model/drawer_component.dart';

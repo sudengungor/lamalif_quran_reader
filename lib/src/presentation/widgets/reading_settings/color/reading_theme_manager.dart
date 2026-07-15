@@ -49,22 +49,13 @@ class ReadingThemeManager {
     ColorOption(color: Colors.white, isDark: false),
   ];
 
-  static String? backgroundColorAnalyticsEvent(Color color) {
+  static String? backgroundColorEvent(Color color) {
     final option = _findOption(backgroundPalettes, color);
     if (option == null) return null;
 
     final prefix = option.isDark ? 'dark' : 'light';
     final groupIndex = _groupIndex(backgroundPalettes, option);
     return 'quran_${prefix}_background_color_$groupIndex';
-  }
-
-  static String? textColorAnalyticsEvent(Color color) {
-    final option = _findOption(textPalettes, color);
-    if (option == null) return null;
-
-    final prefix = option.isDark ? 'dark' : 'light';
-    final groupIndex = _groupIndex(textPalettes, option);
-    return 'quran_${prefix}_text_color_$groupIndex';
   }
 
   static ColorOption? _findOption(List<ColorOption> palettes, Color color) {

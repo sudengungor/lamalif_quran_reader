@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:quran_reader/src/core/analytics/analytics_context.dart';
+import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/presentation/provider/book_read_provider.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/color_picker_row.dart';
 
@@ -22,7 +22,7 @@ class TextColorSettings extends StatelessWidget {
           selectedColor: selectedColor,
           onColorSelected: (color) {
             context.read<BookReadProvider>().saveTextColor(color);
-            context.quranAnalytics.logEvent('quran_text_color_changed');
+            context.bookReadEvent(BookReadEvents.textColorChanged);
           },
         );
       },

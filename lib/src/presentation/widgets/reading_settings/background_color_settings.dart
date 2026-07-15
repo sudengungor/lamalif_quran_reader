@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:quran_reader/src/core/analytics/analytics_context.dart';
+import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/presentation/provider/book_read_provider.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/color/reading_theme_manager.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/color_picker_row.dart';
@@ -30,10 +30,8 @@ class BackgroundColorSettings extends StatelessWidget {
     final provider = context.read<BookReadProvider>();
     provider.saveBackgroundColor(color);
 
-    final eventName = ReadingThemeManager.backgroundColorAnalyticsEvent(color);
-    if (eventName != null) {
-      context.quranAnalytics.logEvent(eventName);
-    }
+    final event = ReadingThemeManager.backgroundColorEvent(color);
+    if (event != null) context.bookReadEvent(event);
 
     final availableTextColors = provider.getAvailableTextColors();
     final currentTextColor = provider.getTextColor();

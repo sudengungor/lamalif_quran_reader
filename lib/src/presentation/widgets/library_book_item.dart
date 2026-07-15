@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:quran_reader/src/core/analytics/analytics_context.dart';
 import 'package:quran_reader/src/core/assets/quran_reader_assets.dart';
 import 'package:quran_reader/src/core/extension/context_extension.dart';
 import 'package:quran_reader/src/l10n/quran_reader_l10n_extension.dart';
@@ -16,10 +15,7 @@ class OpenQuranButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        context.quranAnalytics.logEvent('book_open');
-        onTap();
-      },
+      onTap: onTap,
       child: Container(
         margin: const EdgeInsets.all(16),
         padding: const EdgeInsets.all(24),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/core/utils/string_normalizer.dart';
 import 'package:quran_reader/src/domain/model/drawer_component.dart';
 import 'package:quran_reader/src/l10n/generated/quran_reader_localizations.dart';
@@ -47,6 +48,8 @@ class _SectionListItemState extends State<SectionListItem> {
     );
 
     widget.bookReadProvider.itemScrollController?.jumpTo(index: targetIndex);
+
+    context.bookReadEvent('${BookReadEvents.fihristSectionSelect}:$title');
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       widget.sectionProvider.syncTab(

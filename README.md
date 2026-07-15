@@ -39,7 +39,6 @@ MultiProvider(
   providers: [
     ...quranReaderProviders(
       sharedPreferences: sharedPreferences,
-      analytics: myAnalytics, // opsiyonel
     ),
     // diğer provider'lar...
   ],
@@ -53,7 +52,14 @@ MultiProvider(
 import 'package:quran_reader/quran_reader.dart';
 
 // Okuma ekranı
-Navigator.push(context, MaterialPageRoute(builder: (_) => const BookReadView()));
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (_) => BookReadView(
+      onEvent: (event) => myAnalytics.logEvent(event),
+    ),
+  ),
+);
 
 // Ana sayfa butonu
 OpenQuranButton(onTap: () => Navigator.push(...));

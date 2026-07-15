@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:quran_reader/src/core/analytics/analytics_context.dart';
+import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/presentation/provider/book_read_provider.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/settings_control_card.dart';
 
@@ -13,11 +13,11 @@ class FontsizeSettings extends StatelessWidget {
     return SettingsControlCard(
       onDecrease: () {
         context.read<BookReadProvider>().decreaseFontSize();
-        context.quranAnalytics.logEvent('quran_font_size_decrease');
+        context.bookReadEvent(BookReadEvents.fontSizeDecrease);
       },
       onIncrease: () {
         context.read<BookReadProvider>().increaseFontSize();
-        context.quranAnalytics.logEvent('quran_font_size_increase');
+        context.bookReadEvent(BookReadEvents.fontSizeIncrease);
       },
     );
   }

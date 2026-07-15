@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/l10n/quran_reader_l10n_extension.dart';
 import 'package:quran_reader/src/presentation/provider/book_read_provider.dart';
 import 'package:quran_reader/src/presentation/widgets/bottom_sheet_base.dart';
@@ -56,7 +57,15 @@ class ReadingSettingsView extends StatelessWidget {
                       type: ReadingSettingsCardType.bottom,
                       child: Switch.adaptive(
                         value: provider.getMealEnabled(),
-                        onChanged: (_) => provider.toggleMeal(),
+                        onChanged: (_) async {
+                          await provider.toggleMeal();
+                          if (!context.mounted) return;
+                          context.bookReadEvent(
+                            provider.getMealEnabled()
+                                ? BookReadEvents.mealEnabled
+                                : BookReadEvents.mealDisabled,
+                          );
+                        },
                       ),
                     ),
                   ),
