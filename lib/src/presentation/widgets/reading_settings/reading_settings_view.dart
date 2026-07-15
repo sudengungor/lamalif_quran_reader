@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/l10n/quran_reader_l10n_extension.dart';
 import 'package:quran_reader/src/presentation/provider/book_read_provider.dart';
 import 'package:quran_reader/src/presentation/widgets/bottom_sheet_base.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/background_color_settings.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/fontsize_settings.dart';
+import 'package:quran_reader/src/presentation/widgets/reading_settings/go_to_page_dialog.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/line_spacing_settings.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/reading_settings_card.dart';
 import 'package:quran_reader/src/presentation/widgets/reading_settings/reading_settings_theme.dart';
@@ -43,10 +43,32 @@ class ReadingSettingsView extends StatelessWidget {
                 ReadingSettingsCard(
                   icon: Icons.format_line_spacing,
                   title: l10n.bookSettingsLineSpacing,
-                  type: showMeal
-                      ? ReadingSettingsCardType.middle
-                      : ReadingSettingsCardType.bottom,
+                  type: ReadingSettingsCardType.middle,
                   child: const LineSpacingSettings(),
+                ),
+                const CardDivider(),
+                Selector<BookReadProvider, Color>(
+                  selector: (_, provider) => provider.getTextColor(),
+                  builder: (context, textColor, _) => ReadingSettingsCard(
+                    icon: Icons.menu_book_outlined,
+                    title: l10n.bookGoPage,
+                    type: showMeal
+                        ? ReadingSettingsCardType.middle
+                        : ReadingSettingsCardType.bottom,
+                    onTap: () async {
+                      final navigated = await showGoToPageDialog(context);
+                      if (!navigated || !context.mounted) return;
+                      context.bookReadEvent(BookReadEvents.goToPage);
+                      Navigator.of(context).pop();
+                    },
+                    child: SizedBox(
+                      height: 36,
+                      child: Icon(
+                        Icons.chevron_right_rounded,
+                        color: textColor.withValues(alpha: 0.7),
+                      ),
+                    ),
+                  ),
                 ),
                 if (showMeal) ...[
                   const CardDivider(),

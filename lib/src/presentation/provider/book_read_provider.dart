@@ -45,6 +45,46 @@ class BookReadProvider extends ChangeNotifier {
     return itemPageNumbers[currentPage];
   }
 
+  int get minPhysicalPage {
+    if (itemPageNumbers.isNotEmpty) return itemPageNumbers.first;
+    return selectedBook.firstPage;
+  }
+
+  int get maxPhysicalPage {
+    return bookPageLength ?? selectedBook.firstPage;
+  }
+
+  /// Fiziksel Mushaf sayfa numarasına gider.
+  void goToPhysicalPage(int pageNumber) {
+    final pageNums = itemPageNumbers;
+    int targetIndex;
+
+    if (pageNums.isNotEmpty) {
+      final idx = pageNums.indexOf(pageNumber);
+      if (idx != -1) {
+        targetIndex = idx;
+      } else {
+        // Sayfa listede yoksa en yakın önceki sayfayı bul.
+        targetIndex = 0;
+        for (var i = 0; i < pageNums.length; i++) {
+          if (pageNums[i] <= pageNumber) {
+            targetIndex = i;
+          } else {
+            break;
+          }
+        }
+      }
+    } else {
+      final length = bookFileLength ?? 1;
+      targetIndex = (pageNumber - selectedBook.firstPage).clamp(0, length - 1);
+    }
+
+    currentPage = targetIndex;
+    setSavePage(targetIndex.toDouble());
+    itemScrollController?.jumpTo(index: targetIndex);
+    _safeNotifyListeners();
+  }
+
   void _safeNotifyListeners() {
     if (WidgetsBinding.instance.schedulerPhase != SchedulerPhase.idle) {
       WidgetsBinding.instance.addPostFrameCallback((_) {

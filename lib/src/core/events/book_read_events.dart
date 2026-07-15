@@ -15,6 +15,7 @@ abstract final class BookReadEvents {
   static const fontSizeIncrease = 'quran_font_size_increase';
   static const lineSpacingDecrease = 'quran_line_spacing_decrease';
   static const lineSpacingIncrease = 'quran_line_spacing_increase';
+  static const goToPage = 'quran_go_to_page';
   static const textColorChanged = 'quran_text_color_changed';
   static const mealEnabled = 'quran_meal_enabled';
   static const mealDisabled = 'quran_meal_disabled';

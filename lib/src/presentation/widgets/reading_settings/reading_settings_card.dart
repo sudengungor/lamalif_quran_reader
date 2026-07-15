@@ -30,12 +30,14 @@ class ReadingSettingsCard extends StatelessWidget {
     required this.title,
     this.type = ReadingSettingsCardType.middle,
     this.stackControls = false,
+    this.onTap,
   });
   final Widget child;
   final IconData icon;
   final String title;
   final ReadingSettingsCardType type;
   final bool stackControls;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -47,42 +49,57 @@ class ReadingSettingsCard extends StatelessWidget {
       ),
       builder: (context, data, _) {
         final (background, textColor, isDark) = data;
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-          decoration: BoxDecoration(
-            color: ReadingSettingsTheme.softSurface(
-              background,
-              isDark: isDark,
-            ),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(type.topLeft),
-              topRight: Radius.circular(type.topRight),
-              bottomLeft: Radius.circular(type.bottomLeft),
-              bottomRight: Radius.circular(type.bottomRight),
-            ),
-          ),
-          child: stackControls
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _TitleRow(icon: icon, title: title, textColor: textColor),
-                    const SizedBox(height: 10),
-                    child,
-                  ],
-                )
-              : Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: _TitleRow(
-                        icon: icon,
-                        title: title,
-                        textColor: textColor,
-                      ),
+        final borderRadius = BorderRadius.only(
+          topLeft: Radius.circular(type.topLeft),
+          topRight: Radius.circular(type.topRight),
+          bottomLeft: Radius.circular(type.bottomLeft),
+          bottomRight: Radius.circular(type.bottomRight),
+        );
+        final content = stackControls
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _TitleRow(icon: icon, title: title, textColor: textColor),
+                  const SizedBox(height: 10),
+                  child,
+                ],
+              )
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: _TitleRow(
+                      icon: icon,
+                      title: title,
+                      textColor: textColor,
                     ),
-                    const SizedBox(width: 8),
-                    child,
-                  ],
+                  ),
+                  const SizedBox(width: 8),
+                  child,
+                ],
+              );
+
+        return Material(
+          color: ReadingSettingsTheme.softSurface(background, isDark: isDark),
+          borderRadius: borderRadius,
+          child: onTap == null
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 12,
+                  ),
+                  child: content,
+                )
+              : InkWell(
+                  onTap: onTap,
+                  borderRadius: borderRadius,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 12,
+                    ),
+                    child: content,
+                  ),
                 ),
         );
       },
@@ -112,9 +129,9 @@ class _TitleRow extends StatelessWidget {
             title,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: textColor,
-            ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: textColor),
           ),
         ),
       ],

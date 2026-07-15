@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/l10n/quran_reader_l10n_extension.dart';
+import 'package:quran_reader/src/presentation/widgets/reading_settings/go_to_page_dialog.dart';
 
 class DrawerBottomSection extends StatelessWidget {
   const DrawerBottomSection({super.key, this.textColor});
@@ -10,7 +12,12 @@ class DrawerBottomSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      onPressed: () {},
+      onPressed: () async {
+        final navigated = await showGoToPageDialog(context);
+        if (!navigated || !context.mounted) return;
+        context.bookReadEvent(BookReadEvents.goToPage);
+        Navigator.of(context).pop();
+      },
       style: TextButton.styleFrom(
         foregroundColor: textColor ?? Theme.of(context).colorScheme.onSurface,
         textStyle: Theme.of(context).textTheme.bodyMedium,
