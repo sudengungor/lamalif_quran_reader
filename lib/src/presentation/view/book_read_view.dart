@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-
 import 'package:quran_reader/src/core/events/book_read_events.dart';
+import 'package:quran_reader/src/domain/service/book_read_preferences.dart';
+import 'package:quran_reader/src/l10n/quran_reader_l10n_extension.dart';
 import 'package:quran_reader/src/presentation/provider/book_read_provider.dart';
 import 'package:quran_reader/src/presentation/widgets/book_read_appbar.dart';
 import 'package:quran_reader/src/presentation/widgets/book_read_body.dart';
@@ -28,6 +29,10 @@ class _BookReadViewState extends State<BookReadView>
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final provider = context.read<BookReadProvider>();
+      // Meal yalnızca Türkçe'de var; diğer dillerde pref'i kapat.
+      if (context.quranL10n.langCode != 'tr') {
+        context.read<BookReadPreferences>().setMealEnabled(false);
+      }
       provider.init();
       provider.reloadSavedPosition();
       context.bookReadEvent(BookReadEvents.viewOpen);
