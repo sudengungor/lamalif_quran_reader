@@ -1,0 +1,59 @@
+{
+  "@@locale": "bn",
+  "bookNavTitle": "কুরআন",
+  "bookEnterNumber": "একটি সংখ্যা লিখুন...",
+  "bookGoPage": "পৃষ্ঠায় যান",
+  "bookNavigation": "পৃষ্ঠা নেভিগেশন",
+  "bookError": "ত্রুটি",
+  "bookGo": "যান",
+  "bookCancel": "বাতিল",
+  "bookPageShort": "পৃ. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "পারা {cuz} · পৃ. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "অনুবাদ উল্লেখ করা হয়নি",
+  "bookSettingsFontSize": "ফন্টের আকার",
+  "bookSettingsLineSpacing": "লাইন ব্যবধান",
+  "bookSettingsMeal": "অনুবাদ",
+  "bookSettingsBackgroundColor": "পটভূমি",
+  "bookSettingsTextColor": "লেখা",
+  "bookFihristTitle": "সূচিপত্র",
+  "bookFihristSureTab": "সূরা",
+  "bookFihristCuzTab": "পারা",
+  "bookFihristHizb": "হিজব",
+  "bookFihristCuzLabel": "পারা {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "হিজব {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "সূরার নাম বা নম্বর অনুসন্ধান",
+  "bookFihristSearchCuz": "পারা নম্বর অনুসন্ধান",
+  "settingsTitle": "সেটিংস",
+  "langCode": "bn"
+}

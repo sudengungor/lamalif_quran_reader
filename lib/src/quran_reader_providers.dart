@@ -45,6 +45,18 @@ const List<LocalizationsDelegate<dynamic>> quranReaderLocalizationsDelegates = [
 
 /// Paket tarafından desteklenen diller.
 const List<Locale> quranReaderSupportedLocales = [
+  Locale('az'),
+  Locale('de'),
   Locale('en'),
+  Locale('es'),
+  Locale('fr'),
+  Locale('id'),
+  Locale('uz'),
   Locale('tr'),
+  Locale('ru'),
+  Locale('ur'),
+  Locale('ar'),
+  Locale('fa'),
+  Locale('hi'),
+  Locale('bn'),
 ];

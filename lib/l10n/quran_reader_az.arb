@@ -1,0 +1,59 @@
+{
+  "@@locale": "az",
+  "bookNavTitle": "Qurani-Kərim",
+  "bookEnterNumber": "Nömrə daxil edin...",
+  "bookGoPage": "Səhifəyə Get",
+  "bookNavigation": "Səhifə Naviqasiyası",
+  "bookError": "Xəta",
+  "bookGo": "Get",
+  "bookCancel": "Ləğv et",
+  "bookPageShort": "S. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "Cüz {cuz} · S. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "Tərcümə göstərilməyib",
+  "bookSettingsFontSize": "Şrift ölçüsü",
+  "bookSettingsLineSpacing": "Sətir aralığı",
+  "bookSettingsMeal": "Tərcümə",
+  "bookSettingsBackgroundColor": "Fon",
+  "bookSettingsTextColor": "Mətn",
+  "bookFihristTitle": "Mündəricat",
+  "bookFihristSureTab": "Surə",
+  "bookFihristCuzTab": "Cüz",
+  "bookFihristHizb": "Hizb",
+  "bookFihristCuzLabel": "Cüz {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "Hizb {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "Surə adı və ya nömrəsi axtar",
+  "bookFihristSearchCuz": "Cüz nömrəsi axtar",
+  "settingsTitle": "Parametrlər",
+  "langCode": "az"
+}

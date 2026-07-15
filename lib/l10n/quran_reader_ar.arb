@@ -1,0 +1,59 @@
+{
+  "@@locale": "ar",
+  "bookNavTitle": "القرآن الكريم",
+  "bookEnterNumber": "أدخل رقماً...",
+  "bookGoPage": "الانتقال إلى الصفحة",
+  "bookNavigation": "التنقل بين الصفحات",
+  "bookError": "خطأ",
+  "bookGo": "انتقال",
+  "bookCancel": "إلغاء",
+  "bookPageShort": "ص. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "جزء {cuz} · ص. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "لم يتم تحديد التفسير",
+  "bookSettingsFontSize": "حجم الخط",
+  "bookSettingsLineSpacing": "تباعد الأسطر",
+  "bookSettingsMeal": "التفسير",
+  "bookSettingsBackgroundColor": "الخلفية",
+  "bookSettingsTextColor": "النص",
+  "bookFihristTitle": "الفهرس",
+  "bookFihristSureTab": "سورة",
+  "bookFihristCuzTab": "جزء",
+  "bookFihristHizb": "حزب",
+  "bookFihristCuzLabel": "جزء {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "حزب {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "ابحث عن اسم أو رقم السورة",
+  "bookFihristSearchCuz": "ابحث عن رقم الجزء",
+  "settingsTitle": "الإعدادات",
+  "langCode": "ar"
+}

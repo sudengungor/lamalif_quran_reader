@@ -1,0 +1,59 @@
+{
+  "@@locale": "id",
+  "bookNavTitle": "Al-Qur'an",
+  "bookEnterNumber": "Masukkan angka...",
+  "bookGoPage": "Ke Halaman",
+  "bookNavigation": "Navigasi Halaman",
+  "bookError": "Kesalahan",
+  "bookGo": "Pergi",
+  "bookCancel": "Batal",
+  "bookPageShort": "hlm. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "Juz {cuz} · hlm. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "Terjemahan belum ditentukan",
+  "bookSettingsFontSize": "Ukuran Font",
+  "bookSettingsLineSpacing": "Spasi Baris",
+  "bookSettingsMeal": "Terjemahan",
+  "bookSettingsBackgroundColor": "Latar Belakang",
+  "bookSettingsTextColor": "Teks",
+  "bookFihristTitle": "Daftar Isi",
+  "bookFihristSureTab": "Surah",
+  "bookFihristCuzTab": "Juz",
+  "bookFihristHizb": "Hizb",
+  "bookFihristCuzLabel": "Juz {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "Hizb {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "Cari nama atau nomor surah",
+  "bookFihristSearchCuz": "Cari nomor juz",
+  "settingsTitle": "Pengaturan",
+  "langCode": "id"
+}

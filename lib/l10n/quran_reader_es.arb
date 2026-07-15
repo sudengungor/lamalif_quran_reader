@@ -1,0 +1,59 @@
+{
+  "@@locale": "es",
+  "bookNavTitle": "Corán",
+  "bookEnterNumber": "Introducir un número...",
+  "bookGoPage": "Ir a la página",
+  "bookNavigation": "Navegación de páginas",
+  "bookError": "Error",
+  "bookGo": "Ir",
+  "bookCancel": "Cancelar",
+  "bookPageShort": "p. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "Yuz {cuz} · p. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "Traducción no especificada",
+  "bookSettingsFontSize": "Tamaño de fuente",
+  "bookSettingsLineSpacing": "Espaciado entre líneas",
+  "bookSettingsMeal": "Traducción",
+  "bookSettingsBackgroundColor": "Fondo",
+  "bookSettingsTextColor": "Texto",
+  "bookFihristTitle": "Índice",
+  "bookFihristSureTab": "Sura",
+  "bookFihristCuzTab": "Yuz",
+  "bookFihristHizb": "Hizb",
+  "bookFihristCuzLabel": "Yuz {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "Hizb {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "Buscar nombre o número de sura",
+  "bookFihristSearchCuz": "Buscar número de yuz",
+  "settingsTitle": "Ajustes",
+  "langCode": "es"
+}

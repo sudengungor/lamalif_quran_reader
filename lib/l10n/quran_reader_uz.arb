@@ -1,0 +1,59 @@
+{
+  "@@locale": "uz",
+  "bookNavTitle": "Qur'on",
+  "bookEnterNumber": "Raqam kiriting...",
+  "bookGoPage": "Sahifaga o'tish",
+  "bookNavigation": "Sahifa navigatsiyasi",
+  "bookError": "Xato",
+  "bookGo": "O'tish",
+  "bookCancel": "Bekor qilish",
+  "bookPageShort": "B. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "Juz {cuz} · B. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "Tarjima ko'rsatilmagan",
+  "bookSettingsFontSize": "Shrift o'lchami",
+  "bookSettingsLineSpacing": "Qator oralig'i",
+  "bookSettingsMeal": "Tarjima",
+  "bookSettingsBackgroundColor": "Fon",
+  "bookSettingsTextColor": "Matn",
+  "bookFihristTitle": "Mundarija",
+  "bookFihristSureTab": "Sura",
+  "bookFihristCuzTab": "Juz",
+  "bookFihristHizb": "Hizb",
+  "bookFihristCuzLabel": "Juz {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "Hizb {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "Sura nomi yoki raqamini qidirish",
+  "bookFihristSearchCuz": "Juz raqamini qidirish",
+  "settingsTitle": "Sozlamalar",
+  "langCode": "uz"
+}

@@ -5,8 +5,20 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'quran_reader_localizations_ar.dart';
+import 'quran_reader_localizations_az.dart';
+import 'quran_reader_localizations_bn.dart';
+import 'quran_reader_localizations_de.dart';
 import 'quran_reader_localizations_en.dart';
+import 'quran_reader_localizations_es.dart';
+import 'quran_reader_localizations_fa.dart';
+import 'quran_reader_localizations_fr.dart';
+import 'quran_reader_localizations_hi.dart';
+import 'quran_reader_localizations_id.dart';
+import 'quran_reader_localizations_ru.dart';
 import 'quran_reader_localizations_tr.dart';
+import 'quran_reader_localizations_ur.dart';
+import 'quran_reader_localizations_uz.dart';
 
 // ignore_for_file: type=lint
 
@@ -97,8 +109,20 @@ abstract class QuranReaderLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('ar'),
+    Locale('az'),
+    Locale('bn'),
+    Locale('de'),
     Locale('en'),
+    Locale('es'),
+    Locale('fa'),
+    Locale('fr'),
+    Locale('hi'),
+    Locale('id'),
+    Locale('ru'),
     Locale('tr'),
+    Locale('ur'),
+    Locale('uz'),
   ];
 
   /// No description provided for @bookNavTitle.
@@ -264,8 +288,22 @@ class _QuranReaderLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'tr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'ar',
+    'az',
+    'bn',
+    'de',
+    'en',
+    'es',
+    'fa',
+    'fr',
+    'hi',
+    'id',
+    'ru',
+    'tr',
+    'ur',
+    'uz',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_QuranReaderLocalizationsDelegate old) => false;
@@ -274,10 +312,34 @@ class _QuranReaderLocalizationsDelegate
 QuranReaderLocalizations lookupQuranReaderLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'ar':
+      return QuranReaderLocalizationsAr();
+    case 'az':
+      return QuranReaderLocalizationsAz();
+    case 'bn':
+      return QuranReaderLocalizationsBn();
+    case 'de':
+      return QuranReaderLocalizationsDe();
     case 'en':
       return QuranReaderLocalizationsEn();
+    case 'es':
+      return QuranReaderLocalizationsEs();
+    case 'fa':
+      return QuranReaderLocalizationsFa();
+    case 'fr':
+      return QuranReaderLocalizationsFr();
+    case 'hi':
+      return QuranReaderLocalizationsHi();
+    case 'id':
+      return QuranReaderLocalizationsId();
+    case 'ru':
+      return QuranReaderLocalizationsRu();
     case 'tr':
       return QuranReaderLocalizationsTr();
+    case 'ur':
+      return QuranReaderLocalizationsUr();
+    case 'uz':
+      return QuranReaderLocalizationsUz();
   }
 
   throw FlutterError(

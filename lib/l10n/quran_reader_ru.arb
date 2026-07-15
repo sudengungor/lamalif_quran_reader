@@ -1,0 +1,59 @@
+{
+  "@@locale": "ru",
+  "bookNavTitle": "Коран",
+  "bookEnterNumber": "Введите номер...",
+  "bookGoPage": "Перейти на страницу",
+  "bookNavigation": "Навигация по страницам",
+  "bookError": "Ошибка",
+  "bookGo": "Перейти",
+  "bookCancel": "Отмена",
+  "bookPageShort": "стр. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "Джуз {cuz} · стр. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "Перевод не указан",
+  "bookSettingsFontSize": "Размер шрифта",
+  "bookSettingsLineSpacing": "Межстрочный интервал",
+  "bookSettingsMeal": "Перевод",
+  "bookSettingsBackgroundColor": "Фон",
+  "bookSettingsTextColor": "Текст",
+  "bookFihristTitle": "Оглавление",
+  "bookFihristSureTab": "Сура",
+  "bookFihristCuzTab": "Джуз",
+  "bookFihristHizb": "Хизб",
+  "bookFihristCuzLabel": "Джуз {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "Хизб {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "Поиск суры по названию или номеру",
+  "bookFihristSearchCuz": "Поиск номера джуза",
+  "settingsTitle": "Настройки",
+  "langCode": "ru"
+}

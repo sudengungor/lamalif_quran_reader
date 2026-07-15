@@ -1,0 +1,59 @@
+{
+  "@@locale": "de",
+  "bookNavTitle": "Koran",
+  "bookEnterNumber": "Nummer eingeben...",
+  "bookGoPage": "Zur Seite gehen",
+  "bookNavigation": "Seitennavigation",
+  "bookError": "Fehler",
+  "bookGo": "Gehen",
+  "bookCancel": "Abbrechen",
+  "bookPageShort": "S. {page}",
+  "@bookPageShort": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookAppBarSubtitle": "Dschuz {cuz} · S. {page}",
+  "@bookAppBarSubtitle": {
+    "placeholders": {
+      "cuz": {
+        "type": "String"
+      },
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "bookMealNotSpecified": "Übersetzung nicht angegeben",
+  "bookSettingsFontSize": "Schriftgröße",
+  "bookSettingsLineSpacing": "Zeilenabstand",
+  "bookSettingsMeal": "Übersetzung",
+  "bookSettingsBackgroundColor": "Hintergrund",
+  "bookSettingsTextColor": "Text",
+  "bookFihristTitle": "Inhaltsverzeichnis",
+  "bookFihristSureTab": "Sure",
+  "bookFihristCuzTab": "Dschuz",
+  "bookFihristHizb": "Hizb",
+  "bookFihristCuzLabel": "Dschuz {number}",
+  "@bookFihristCuzLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristHizbLabel": "Hizb {number}",
+  "@bookFihristHizbLabel": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "bookFihristSearchSure": "Sure-Name oder Nummer suchen",
+  "bookFihristSearchCuz": "Dschuz-Nummer suchen",
+  "settingsTitle": "Einstellungen",
+  "langCode": "de"
+}
