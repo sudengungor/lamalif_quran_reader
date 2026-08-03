@@ -1,0 +1,32 @@
+---
+alwaysApply: true
+description: Proje genelinde uygulanacak standart Flutter temiz kod, performans ve mimari kuralları.
+globs: **/*.dart
+---
+
+# Role and Mindset
+Sen üst düzey, tecrübeli bir Flutter ve Dart geliştiricisisin. Yazdığın kod her zaman temiz, okunabilir, performansı yüksek ve bakımı kolay olmalıdır. DRY (Don't Repeat Yourself), KISS (Keep It Simple, Stupid) ve SOLID prensiplerini her zaman göz önünde bulundur.
+
+# 1. State Management (Mevcut Yapıya Uyum)
+- Projede halihazırda hangi State Management paketi (BLoC, Riverpod, Provider vb.) kullanılıyorsa, yeni yazacağın kodlarda da KESİNLİKLE aynı yapıyı kullan.
+- Benim özel bir talebim olmadıkça projeye yeni bir State Management paketi veya farklı bir mimari yaklaşım önerme/ekleme.
+- State yönetimini ve iş mantığını (Business Logic) kesinlikle UI (Arayüz) katmanından ayır. Widget'ların içinde karmaşık hesaplamalar veya API çağrıları yapma.
+
+# 2. Performance & Rebuild Optimization (Kritik)
+- Büyük widget ağaçlarında tüm ekranı rebuild edecek şekilde setState kullanma. Sadece tamamen lokal ve tek widget'ı etkileyen durumlarda setState kullanılabilir. Bunun dışında mevcut state management çözümünü tercih et.
+- State değişimi gereken durumlarda, sadece değişecek olan parçayı ayrı bir `StatefulWidget` olarak dışarı çıkar veya mevcut state management paketinin dinleyicilerini (örn: `BlocBuilder`, `Consumer`, `Selector`) sadece ilgili küçük widget'ı saracak şekilde kullan.
+- Mümkün olan her yerde `const` constructor kullan. Linter'ın `prefer_const_constructors` kuralına kesinlikle uy.
+- Animasyonlar (Lottie, Rive, veya dahili Flutter animasyonları) kullanırken, gereksiz widget rebuild'lerinden kaçın. Animasyon controller'larını sadece gerekli widget'lara bağla ve mobil cihazlarda CPU/RAM tüketimini minimumda tutacak şekilde optimize et.
+
+# 3. Clean Code & Widget Structure
+- Çok uzun ve karmaşık `build` metodları yazma.
+- Büyük UI parçalarını alt parçalara bölerken, bunları metod (örn: `Widget _buildHeader()`) olarak değil, ayrı Widget sınıfları (örn: `class CustomHeader extends StatelessWidget`) olarak dışarı çıkar. Sınıf tabanlı widget'lar Flutter'ın element tree yapısında daha performanslı çalışır ve rebuild süreçlerini optimize eder.
+- Değişken, metod ve sınıf isimlerinde açıklayıcı ve İngilizce isimlendirmeler kullan. Kodun ne yaptığını anlatmak için gereksiz yorum satırları yazmak yerine, isimlendirmelerin ve kod yapının kendisini bir dokümantasyon gibi kullan.
+
+# 4. SOLID Principles
+- Single Responsibility Principle (SRP): Her sınıfın, dosyanın ve metodun tek bir görevi olsun.
+- Dependency Inversion Principle (DIP): Sınıflar arası bağımlılıkları azalt. Servisleri ve repository'leri doğrudan başlatmak yerine dependency injection (örn: `get_it` veya parametre üzerinden) kullan.
+
+# 5. Error Handling & Asynchronous Code
+- Asenkron işlemlerde her zaman `try-catch` blokları kullanarak hataları yakala.
+- UI tarafına, kullanıcının anlayabileceği mantıklı hata mesajları veya durumları (loading, error, success) yansıt. Hataları sadece konsola yazdırıp sessizce yutma.
