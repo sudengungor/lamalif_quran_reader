@@ -406,6 +406,29 @@ class BookReadProvider extends ChangeNotifier {
     return name.replaceFirst(RegExp(r'^\d+\.\s*'), '');
   }
 
+  /// Kur'an metnindeki `<1-Fâtiha>` başlığını dile göre gösterir.
+  String localizedInlineSureName(String raw, String localeName) {
+    if (localeName.toLowerCase().startsWith('tr')) return raw;
+
+    final numberMatch = RegExp(r'^(\d+)-').firstMatch(raw);
+    if (numberMatch != null) {
+      final surahNum = int.tryParse(numberMatch.group(1)!);
+      for (final section in fihristSections) {
+        if (_extractSurahNumberFromTitle(section.title) == surahNum) {
+          return '$surahNum-${_localizedSureName(section.title, localeName)}';
+        }
+      }
+      return raw;
+    }
+
+    for (final section in fihristSections) {
+      if (section.title.split('@').first.trim() == raw.trim()) {
+        return _localizedSureName(section.title, localeName);
+      }
+    }
+    return raw;
+  }
+
   String? _formatIndexedLabel(String? rawTitle, String suffix) {
     if (rawTitle == null) return null;
     final number = rawTitle.replaceAll(RegExp(r'[^0-9]'), '');
