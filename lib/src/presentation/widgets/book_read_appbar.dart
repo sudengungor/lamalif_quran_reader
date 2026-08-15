@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/l10n/quran_reader_l10n_extension.dart';
 import 'package:quran_reader/src/presentation/provider/book_read_provider.dart';
@@ -20,7 +19,7 @@ class BookReadAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Consumer<BookReadProvider>(
       builder: (context, provider, child) {
         final iconColor = provider.getIconColor();
-        final surahTitle = provider.getCurrentSurahTitle();
+        final surahTitle = provider.getCurrentSurahTitle(l10n);
         final subtitle = provider.getAppBarSubtitle(l10n);
 
         return AppBar(

@@ -280,9 +280,9 @@ class BookReadProvider extends ChangeNotifier {
     return currentPhysicalPage.toString();
   }
 
-  String getCurrentSurahTitle() {
+  String getCurrentSurahTitle(QuranReaderLocalizations l10n) {
     if (fihristSections.isEmpty) return '';
-    return _findActiveSureTitleByItemIndex(currentPage);
+    return _findActiveSureTitleByItemIndex(currentPage, l10n.localeName);
   }
 
   String getAppBarSubtitle(QuranReaderLocalizations l10n) {
@@ -302,7 +302,10 @@ class BookReadProvider extends ChangeNotifier {
     if (fihristSections.isEmpty || fihristCuzSections.isEmpty) return '';
 
     final page = currentPhysicalPage;
-    final surahTitle = _findActiveSureTitleByItemIndex(currentPage);
+    final surahTitle = _findActiveSureTitleByItemIndex(
+      currentPage,
+      l10n.localeName,
+    );
     final activeCuz = _findActiveSection(fihristCuzSections, page);
     final cuzLabel = _formatIndexedLabel(
       activeCuz?.title,
@@ -362,7 +365,10 @@ class BookReadProvider extends ChangeNotifier {
     return lastBefore;
   }
 
-  String _findActiveSureTitleByItemIndex(int currentItemIndex) {
+  String _findActiveSureTitleByItemIndex(
+    int currentItemIndex,
+    String localeName,
+  ) {
     String? bestTitle;
     int bestItemIndex = -1;
 
@@ -372,7 +378,8 @@ class BookReadProvider extends ChangeNotifier {
       if (surahNum != null) {
         itemIdx = surahItemIndexMap[surahNum];
       } else {
-        itemIdx = specialSectionItemIndexMap[section.title];
+        itemIdx =
+            specialSectionItemIndexMap[section.title.split('@').first.trim()];
       }
       if (itemIdx == null) continue;
 
@@ -382,7 +389,9 @@ class BookReadProvider extends ChangeNotifier {
       }
     }
 
-    return bestTitle != null ? _stripLeadingNumber(bestTitle) : '';
+    return bestTitle != null
+        ? _localizedSureName(bestTitle, localeName)
+        : '';
   }
 
   int? _extractSurahNumberFromTitle(String title) {
@@ -390,8 +399,11 @@ class BookReadProvider extends ChangeNotifier {
     return int.tryParse(match?.group(1) ?? '');
   }
 
-  String _stripLeadingNumber(String title) {
-    return title.replaceFirst(RegExp(r'^\d+\.\s*'), '');
+  String _localizedSureName(String title, String localeName) {
+    final parts = title.split('@');
+    final isTurkish = localeName.toLowerCase().startsWith('tr');
+    final name = (parts.length > 1 && !isTurkish ? parts[1] : parts[0]).trim();
+    return name.replaceFirst(RegExp(r'^\d+\.\s*'), '');
   }
 
   String? _formatIndexedLabel(String? rawTitle, String suffix) {

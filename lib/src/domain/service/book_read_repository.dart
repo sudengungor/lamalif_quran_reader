@@ -1,5 +1,4 @@
 import 'package:flutter/services.dart';
-
 import 'package:quran_reader/src/core/assets/quran_reader_assets.dart';
 import 'package:quran_reader/src/domain/extension/string_extension.dart';
 import 'package:quran_reader/src/domain/model/book.dart';
@@ -13,9 +12,7 @@ final class BookReadRepository {
     'ڟ': '«حزب ٤»',
   };
 
-  static const _inlineMarkers = {
-    'ښ': '«سجدة»',
-  };
+  static const _inlineMarkers = {'ښ': '«سجدة»'};
 
   Future<({List<String> items, List<int> pageNumbers})> getBookData(
     Book book,
@@ -58,15 +55,11 @@ final class BookReadRepository {
   }
 
   Future<List<Section>> getFihristData(Book book) async {
-    return _groupSections(
-      await _loadSections(book.fileName.toFihristSure),
-    );
+    return _groupSections(await _loadSections(book.fileName.toFihristSure));
   }
 
   Future<List<Section>> getFihristCuzData(Book book) async {
-    return _groupSections(
-      await _loadSections(book.fileName.toFihristCuz),
-    );
+    return _groupSections(await _loadSections(book.fileName.toFihristCuz));
   }
 
   Future<List<Section>> _loadSections(String filePath) async {
@@ -75,12 +68,17 @@ final class BookReadRepository {
     final sections = <Section>[];
 
     for (final element in lines) {
+      if (element.trim().isEmpty) continue;
       final item = element.split('|');
-      final title = item[0].split('@')[0];
+      if (item.length < 2) continue;
+      final rawTitle = item[0];
+      final parts = rawTitle.split('@');
+      final english = parts.length > 1 ? parts[1].trim() : '';
+      final keepTranslation = RegExp(r'[A-Za-z]').hasMatch(english);
       final section = Section(
-        title.trim(),
+        (keepTranslation ? rawTitle : parts[0]).trim(),
         int.tryParse(item[1]) ?? 0,
-        tabCount(item[0]),
+        tabCount(rawTitle),
       );
       sections.add(section);
     }

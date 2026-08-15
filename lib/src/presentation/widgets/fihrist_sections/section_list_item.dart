@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:quran_reader/src/core/events/book_read_events.dart';
 import 'package:quran_reader/src/core/utils/string_normalizer.dart';
 import 'package:quran_reader/src/domain/model/drawer_component.dart';
@@ -137,11 +136,16 @@ class _SectionListItemState extends State<SectionListItem> {
     Section section,
     QuranReaderLocalizations l10n,
   ) {
-    final sureMatch = RegExp(r'^(\d+)\.\s*(.+)$').firstMatch(section.title);
+    final parts = section.title.split('@');
+    final isTurkish = l10n.localeName.toLowerCase().startsWith('tr');
+    final localizedName = (parts.length > 1 && !isTurkish ? parts[1] : parts[0])
+        .trim();
+
+    final sureMatch = RegExp(r'^(\d+)\.\s*(.+)$').firstMatch(parts[0].trim());
     if (sureMatch != null) {
       return (
         badge: sureMatch.group(1)!,
-        displayTitle: sureMatch.group(2)!.trim(),
+        displayTitle: localizedName.replaceFirst(RegExp(r'^\d+\.\s*'), ''),
       );
     }
 
@@ -167,7 +171,7 @@ class _SectionListItemState extends State<SectionListItem> {
       );
     }
 
-    return (badge: '•', displayTitle: section.title);
+    return (badge: '•', displayTitle: localizedName);
   }
 
   @override
