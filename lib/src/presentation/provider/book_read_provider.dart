@@ -480,11 +480,16 @@ class BookReadProvider extends ChangeNotifier {
   Color getBackgroundColor() => Color(_bookPreferences.getBackgroundColor());
 
   ColorOption get bgOption {
-    final bgColor = getBackgroundColor();
-    return ReadingThemeManager.backgroundPalettes.firstWhere(
-      (option) => option.color.toARGB32() == bgColor.toARGB32(),
-    );
-  }
+  final bgColor = getBackgroundColor();
+
+  return ReadingThemeManager.backgroundPalettes.firstWhere(
+    (option) => option.color.toARGB32() == bgColor.toARGB32(),
+
+    // Kullanıcının daha eski bir sürümden kalmış rengi varsa
+    // ekran çökmek yerine ilk güvenli arka planı kullanır.
+    orElse: () => ReadingThemeManager.backgroundPalettes.first,
+  );
+}
 
   List<Color> getAvailableTextColors() {
     final colorOption = bgOption.getAvailableColorsBy(
