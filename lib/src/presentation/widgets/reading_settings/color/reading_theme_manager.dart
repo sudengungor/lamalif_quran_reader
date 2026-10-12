@@ -4,49 +4,59 @@ import 'color_option.dart';
 
 class ReadingThemeManager {
   // Tüm arka plan seçenekleri
+  // Tesettür uygulamasındaki açık ve koyu Kur'an okuma arka planları.
   static final List<ColorOption> backgroundPalettes = const [
-    ColorOption(color: Color(0xffF5E8D3), isDark: false),
-    ColorOption(color: Color(0xffFDF6E3), isDark: false),
-    ColorOption(color: Color(0xff1C1C1C)),
-    ColorOption(color: Color(0xff111111)),
+    // Açık mod seçenekleri
+    ColorOption(color: Color(0xFFF5F5F5), isDark: false),
+    ColorOption(color: Color(0xFFFFFFFF), isDark: false),
+
+    // Koyu mod seçenekleri
+    ColorOption(color: Color(0xFF1E191A)),
+    ColorOption(color: Color(0xFF000000)),
   ];
 
-  // Tüm metin rengi havuzu
+  // Eski Kur'an ekranındaki yazı renkleri.
   static final List<ColorOption> textPalettes = const [
+    // Açık arka plan üzerinde kullanılacak koyu yazılar
     ColorOption(color: Colors.black),
-    ColorOption(color: Color(0xff6B3A1F)),
-    ColorOption(color: Color(0xff1B3A2D)),
-    ColorOption(color: Color.fromARGB(255, 78, 31, 31)),
+    ColorOption(color: Color(0xFFB71C1C)), // bordo
+    ColorOption(color: Colors.blue),
+    ColorOption(color: Colors.green),
+    ColorOption(color: Colors.deepOrange),
+    ColorOption(color: Colors.teal),
+    ColorOption(color: Colors.deepPurple),
 
-    // Light text colors
-    ColorOption(color: Color.fromARGB(255, 244, 244, 244), isDark: false),
-    ColorOption(color: Color.fromARGB(255, 184, 184, 184), isDark: false),
-    ColorOption(color: Color(0xffD4B483), isDark: false),
-    ColorOption(color: Color(0xffD8C8A8), isDark: false),
+    // Koyu arka plan üzerinde kullanılacak açık yazılar
+    ColorOption(color: Colors.white, isDark: false),
+    ColorOption(color: Color(0xFFFF9191), isDark: false),
+    ColorOption(color: Color(0xFF69BBFF), isDark: false),
+    ColorOption(color: Colors.green, isDark: false),
+    ColorOption(color: Colors.deepOrange, isDark: false),
+    ColorOption(color: Color(0xFF29EDDA), isDark: false),
+    ColorOption(color: Color(0xFFBF9AFF), isDark: false),
   ];
 
-  // Tüm arapça ayet numarası renk havuzu
+  // Âyet numarası renkleri.
   static final List<ColorOption> verseNumberPalettes = const [
-    ColorOption(color: Color.fromARGB(255, 255, 153, 146), isDark: false),
-    ColorOption(color: Colors.red),
+    ColorOption(color: Color(0xFFB71C1C)),
+    ColorOption(color: Color(0xFFFF9191), isDark: false),
   ];
 
-  // Tüm hizb badge renk havuzu
+  // Hizb ve secde işaretleri.
   static final List<ColorOption> hizbPalettes = const [
     ColorOption(color: Colors.deepOrange),
-    ColorOption(color: Colors.red, isDark: false),
+    ColorOption(color: Color(0xFFFF9191), isDark: false),
   ];
 
-  // Tüm secde badge renk havuzu
   static final List<ColorOption> secdePalettes = const [
     ColorOption(color: Colors.teal),
-    ColorOption(color: Colors.red, isDark: false),
+    ColorOption(color: Color(0xFFFF9191), isDark: false),
   ];
 
-  // Arayüz, iconlar ve diğer renkler için havuz
+  // Açık modda bordo, koyu modda açık kırmızı arayüz rengi.
   static final List<ColorOption> uiPalettes = const [
-    ColorOption(color: Color(0xff362C25)),
-    ColorOption(color: Colors.white, isDark: false),
+    ColorOption(color: Color(0xFFB71C1C)),
+    ColorOption(color: Color(0xFFFF9191), isDark: false),
   ];
 
   static String? backgroundColorEvent(Color color) {
