@@ -77,6 +77,16 @@ static String? textColorAnalyticsEvent(Color color) {
   return 'quran_${prefix}_text_color_$groupIndex';
 }
 
+  // Paketin bazı ekranları bu eski kısa adı kullanıyor.
+static String? backgroundColorEvent(Color color) {
+  return backgroundColorAnalyticsEvent(color);
+}
+
+// İleride başka ekranlarda aynı durum olursa uyumlu kalsın.
+static String? textColorEvent(Color color) {
+  return textColorAnalyticsEvent(color);
+}
+
   static ColorOption? _findOption(List<ColorOption> palettes, Color color) {
     for (final option in palettes) {
       if (option.color.toARGB32() == color.toARGB32()) {
